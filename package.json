@@ -7,8 +7,12 @@
     "dev": "tsc --watch src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Dániel Sebestyén <dannystyleart@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "github:dannystyleart/seeme-client"
+  },
   "devDependencies": {
     "@types/node-fetch": "^2.5.7",
     "prettier": "^2.2.1",
