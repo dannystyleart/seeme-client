@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`httpClient request(path, params) should not append query params when params is empty object 1`] = `
+Object {
+  "message": "Reponse from mock server",
+  "requestedUrl": "http://api.example.com/hello",
+}
+`;
+
+exports[`httpClient request(path, params) should return parsed json response sent to given api endpoint defined by path argument 1`] = `
+Object {
+  "message": "Reponse from mock server",
+  "requestedUrl": "http://api.example.com/hello",
+}
+`;
+
+exports[`httpClient request(path, params) should return parsed response sent to given api endpoint defined by path and params arguments 1`] = `
+Object {
+  "message": "Reponse from mock server",
+  "requestedUrl": "http://api.example.com/hello?search=some+search+term&flagged=true&someList=1%2C2%2C3",
+}
+`;

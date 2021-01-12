@@ -9,7 +9,8 @@ export const createApiClient = (apiUrl: string) => {
 
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await fetch([apiEndpoint, queryParams.toString()].join('?'));
+        const requestUrl = [apiEndpoint, queryParams.toString()].filter(Boolean).join('?');
+        const response = await fetch(requestUrl);
         resolve(response.json());
       } catch (e) {
         reject(e);
