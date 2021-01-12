@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`exceptions SeeMeClientError should an alias for Error class 1`] = `[Error: some error]`;
-
-exports[`exceptions SeeMeClientError should an alias for Error class 2`] = `[Error: some error]`;
+exports[`exceptions SeeMeClientError should be customized Error class 1`] = `[SeeMeClientError: some error]`;
 
 exports[`exceptions SeeMeClientExceptions should contain correct enum values 1`] = `
 Object {
@@ -13,7 +11,7 @@ Object {
 }
 `;
 
-exports[`exceptions SeeMeErrorResponse should an alias for Error class 1`] = `[Error: some error]`;
+exports[`exceptions SeeMeErrorResponse should be customized Error class 1`] = `[SeeMeErrorResponse: some error]`;
 
 exports[`exceptions should export correct submodules 1`] = `
 Object {

@@ -12,21 +12,11 @@ describe('exceptions', () => {
     expect(SeeMeClientExceptions).toMatchSnapshot();
   });
 
-  test('SeeMeClientError should an alias for Error class', () => {
-    const error = new SeeMeClientError('some error');
-    expect(error).toBeInstanceOf(Error);
-    expect(error).toMatchSnapshot();
-  });
-
-  test('SeeMeClientError should an alias for Error class', () => {
-    const error = new SeeMeClientError('some error');
-    expect(error).toBeInstanceOf(Error);
-    expect(error).toMatchSnapshot();
-  });
-
-  test('SeeMeErrorResponse should an alias for Error class', () => {
-    const error = new SeeMeErrorResponse('some error');
-    expect(error).toBeInstanceOf(Error);
-    expect(error).toMatchSnapshot();
-  });
+  [SeeMeClientError, SeeMeErrorResponse].forEach((exceptionClass) =>
+    test(`${exceptionClass.name} should be customized Error class`, () => {
+      const instance = new exceptionClass('some error');
+      expect(instance).toBeInstanceOf(Error);
+      expect(instance).toMatchSnapshot();
+    })
+  );
 });
