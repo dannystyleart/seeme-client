@@ -1,2 +1,2 @@
-export * from './SeeMeClient.interface';
-export * from './SeeMeClientOptions.interface';
+export * from './SeeMeClient';
+export * from './SeeMeClientOptions';

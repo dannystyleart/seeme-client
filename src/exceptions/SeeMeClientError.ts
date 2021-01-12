@@ -1,5 +1,1 @@
-export class SeeMeClientError extends Error {
-  constructor(message?: string) {
-    super(`SeeMeClientError: ${message}`);
-  }
-}
+export class SeeMeClientError extends Error {}

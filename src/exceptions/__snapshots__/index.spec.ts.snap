@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`exceptions SeeMeClientError should an alias for Error class 1`] = `[Error: some error]`;
+
+exports[`exceptions SeeMeClientError should an alias for Error class 2`] = `[Error: some error]`;
+
+exports[`exceptions SeeMeClientExceptions should contain correct enum values 1`] = `
+Object {
+  "API_HOST_MISSING": "API_HOST_MISSING",
+  "API_HOST_PROTOCOL_UNSUPPORTED": "API_HOST_PROTOCOL_UNSUPPORTED",
+  "API_KEY_MISSING": "API_KEY_MISSING",
+  "API_PATH_INVALID": "API_PATH_INVALID",
+}
+`;
+
+exports[`exceptions SeeMeErrorResponse should an alias for Error class 1`] = `[Error: some error]`;
+
+exports[`exceptions should export correct submodules 1`] = `
+Object {
+  "SeeMeClientError": [Function],
+  "SeeMeClientExceptions": Object {
+    "API_HOST_MISSING": "API_HOST_MISSING",
+    "API_HOST_PROTOCOL_UNSUPPORTED": "API_HOST_PROTOCOL_UNSUPPORTED",
+    "API_KEY_MISSING": "API_KEY_MISSING",
+    "API_PATH_INVALID": "API_PATH_INVALID",
+  },
+  "SeeMeErrorResponse": [Function],
+}
+`;
