@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils withDefaults(object, defaults) should return merged result of object and defaults arguments: merged result 1`] = `
+Object {
+  "key": "value",
+  "myKey": "hello",
+  "newField": true,
+  "other": "other value",
+}
+`;
+
+exports[`utils withDefaults(object, defaults) should return merged result of object and defaults arguments: overwritten merged result 1`] = `
+Object {
+  "key": "overwritten value",
+  "myKey": "hello",
+  "newField": true,
+  "other": "yet another",
+}
+`;
