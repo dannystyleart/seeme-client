@@ -1,10 +1,6 @@
 import { URLSearchParams } from 'url';
 import fetch from 'node-fetch';
-
-const removeSlash = (subject: string, trailing = true) => {
-  const pattern = trailing ? /\/$/ : /^\//;
-  return subject.replace(pattern, '');
-};
+import { removeSlash } from './utils';
 
 export const createApiClient = (apiUrl: string) => {
   return <T>(path: string, params: any): Promise<T> => {

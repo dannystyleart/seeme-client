@@ -1,4 +1,4 @@
-import { isHttpProtocol, isNonEmptyString, withDefaults } from './utils';
+import { isHttpProtocol, isNonEmptyString, removeSlash, withDefaults } from './utils';
 
 describe('utils', () => {
   const exampleInvalidStringValues = ['', undefined, null, 0, {}, [], () => {}];
@@ -55,6 +55,20 @@ describe('utils', () => {
         defaults
       );
       expect(overwritten).toMatchSnapshot('overwritten merged result');
+    });
+  });
+
+  describe('removeSlash(subject, trailing) should return subject', () => {
+    test('without last trailing slash when trailing omitted or set to true', () => {
+      expect(removeSlash('slashed/')).toEqual('slashed');
+      expect(removeSlash('slashed/', true)).toEqual('slashed');
+      expect(removeSlash('doubleslashed//')).toEqual('doubleslashed/');
+      expect(removeSlash('doubleslashed//', true)).toEqual('doubleslashed/');
+    });
+
+    test('without first leading slash when trailing to false', () => {
+      expect(removeSlash('/slashed', false)).toEqual('slashed');
+      expect(removeSlash('//doubleslashed', false)).toEqual('/doubleslashed');
     });
   });
 });
