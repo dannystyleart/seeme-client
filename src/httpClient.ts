@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 import { removeSlash } from './utils';
 
 export const createApiClient = (apiUrl: string) => {
-  return <T>(path: string, params: any): Promise<T> => {
+  return (path: string, params: any): Promise<any> => {
     const apiEndpoint = [removeSlash(apiUrl), removeSlash(path, false)].join('/');
     const queryParams = new URLSearchParams(<any>params);
 
