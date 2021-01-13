@@ -1,8 +1,20 @@
 {
   "name": "seeme-client",
-  "version": "0.0.1",
-  "description": "Nodejs client library for Seeme sms gateway",
-  "main": "index.js",
+  "version": "0.0.4-0",
+  "description": "Nodejs client library for Seeme.hu sms gateway",
+  "keywords": [
+    "seeme",
+    "send",
+    "sms",
+    "gateway",
+    "api",
+    "client"
+  ],
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
@@ -12,6 +24,9 @@
   },
   "author": "Dániel Sebestyén <dannystyleart@gmail.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dannystyleart/seeme-client/issues"
+  },
   "repository": {
     "type": "git",
     "url": "github:dannystyleart/seeme-client"
@@ -27,6 +42,9 @@
   },
   "dependencies": {
     "@types/node": "^14.14.20",
+    "node-fetch": "^2.6.1"
+  },
+  "peerDependencies": {
     "node-fetch": "^2.6.1"
   }
 }
