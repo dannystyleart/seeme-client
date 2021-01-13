@@ -6,11 +6,14 @@
     "target": "es6",
     "lib": ["ES2015"],
     "declaration": true,
+    "pretty": true,
 
     "incremental": false,
     "sourceMap": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": ["node_modules", "src/**/*.spec.ts"],
+  "include": ["src/**/*.ts"]
 }
