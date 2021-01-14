@@ -1,4 +1,4 @@
-import { isHttpProtocol, isNonEmptyString, withDefaults } from './utils';
+import { isHttpProtocol, isNonEmptyString, isValidIPv4Address, withDefaults } from './utils';
 import { SeeMeClient, SeeMeClientOptions } from './interfaces';
 import { SeeMeClientError, SeeMeClientExceptions } from './exceptions';
 import { createApiClient } from './httpClient';
@@ -28,10 +28,14 @@ export const createClient = (options: SeeMeClientOptions): SeeMeClient => {
       apiVersion
     });
 
-  const notImplemented = () => Promise.reject('NOT_YET_IMPLEMENTED');
+  const notImplemented = async () => Promise.reject('NOT_YET_IMPLEMENTED');
+
   return {
-    getBalance: () => gatewayCall({ method: 'balance' }),
-    setIP: (ip) => gatewayCall({ method: 'setip', ip }),
+    getBalance: async () => gatewayCall({ method: 'balance' }),
+    setIP: async (ip: string) => {
+      if (!isValidIPv4Address(ip)) throw new SeeMeClientError(SeeMeClientExceptions.SETIP_INVALID_IP);
+      return gatewayCall({ method: 'setip', ip });
+    },
     sendMessage: notImplemented
   };
 };
