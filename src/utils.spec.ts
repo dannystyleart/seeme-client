@@ -1,19 +1,19 @@
-import { isHttpProtocol, isNonEmptyString, removeSlash, withDefaults } from './utils';
+import { isHttpProtocol, isValidStringValue, removeSlash, withDefaults } from './utils';
 
 describe('utils', () => {
   const exampleInvalidStringValues = ['', undefined, null, 0, {}, [], () => {}];
 
-  describe('isNonEmptyString(arg) should return', () => {
+  describe('isValidStringValue(arg) should return', () => {
     test('true if arg is a non empty string', () => {
-      expect(isNonEmptyString('asd')).toBe(true);
+      expect(isValidStringValue('asd')).toBe(true);
     });
 
     test('false when arg is empty string', () => {
-      expect(isNonEmptyString('')).toBe(false);
+      expect(isValidStringValue('')).toBe(false);
     });
 
     test('false when arg is not string', () => {
-      exampleInvalidStringValues.forEach((value) => expect(isNonEmptyString(value)).toBe(false));
+      exampleInvalidStringValues.forEach((value) => expect(isValidStringValue(value)).toBe(false));
     });
   });
 
