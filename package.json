@@ -1,6 +1,6 @@
 {
   "name": "seeme-client",
-  "version": "0.1.0-0",
+  "version": "0.1.0",
   "description": "Nodejs client library for Seeme.hu sms gateway",
   "keywords": [
     "seeme",
