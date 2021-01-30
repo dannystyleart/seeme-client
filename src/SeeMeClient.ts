@@ -50,6 +50,10 @@ export const createClient = (options: SeeMeClientOptions): SeeMeClient => {
       reference: (typeof referenceId !== 'undefined' && `${referenceId}`.trim()) || undefined
     };
 
+    if (!isValidStringValue(params.number)) {
+      throw new SeeMeClientError(SeeMeClientExceptions.SMS_MESSAGE_NUMBER_MISSING);
+    }
+
     if (!isValidStringValue(params.message) || params.message.length < 1) {
       throw new SeeMeClientError(SeeMeClientExceptions.SMS_MESSAGE_MISSING);
     }
