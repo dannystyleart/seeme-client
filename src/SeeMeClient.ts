@@ -1,4 +1,4 @@
-import { isHttpProtocol, isNonEmptyString, isValidIPv4Address, withDefaults } from './utils';
+import { isHttpProtocol, isValidStringValue, isValidIPv4Address, withDefaults } from './utils';
 import { SeeMeClient, SeeMeClientOptions, SendMessageOptionalParams } from './interfaces';
 import { SeeMeClientError, SeeMeClientExceptions } from './exceptions';
 import { createApiClient } from './httpClient';
@@ -26,10 +26,10 @@ export const createClient = (options: SeeMeClientOptions): SeeMeClient => {
   const clientOptions = withDefaults(options, defaultConfig) as SeeMeClientOptions;
   const { apiKey, apiHost, apiPath, apiVersion } = clientOptions;
 
-  if (!isNonEmptyString(apiKey)) throw new SeeMeClientError(SeeMeClientExceptions.API_KEY_MISSING);
-  if (!isNonEmptyString(apiHost)) throw new SeeMeClientError(SeeMeClientExceptions.API_HOST_MISSING);
+  if (!isValidStringValue(apiKey)) throw new SeeMeClientError(SeeMeClientExceptions.API_KEY_MISSING);
+  if (!isValidStringValue(apiHost)) throw new SeeMeClientError(SeeMeClientExceptions.API_HOST_MISSING);
   if (!isHttpProtocol(apiHost)) throw new SeeMeClientError(SeeMeClientExceptions.API_HOST_PROTOCOL_UNSUPPORTED);
-  if (!isNonEmptyString(apiPath)) throw new SeeMeClientError(SeeMeClientExceptions.API_PATH_INVALID);
+  if (!isValidStringValue(apiPath)) throw new SeeMeClientError(SeeMeClientExceptions.API_PATH_INVALID);
 
   const request = createApiClient(apiHost);
   const gatewayCall = (params: any = {}) =>
@@ -50,12 +50,12 @@ export const createClient = (options: SeeMeClientOptions): SeeMeClient => {
       reference: (typeof referenceId !== 'undefined' && `${referenceId}`.trim()) || undefined
     };
 
-    if (!isNonEmptyString(params.message) || params.message.length < 1) {
+    if (!isValidStringValue(params.message) || params.message.length < 1) {
       throw new SeeMeClientError(SeeMeClientExceptions.SMS_MESSAGE_MISSING);
     }
 
     if (callbackStatus) {
-      if (!isNonEmptyString(params.callbackurl)) throw new SeeMeClientError(SeeMeClientExceptions.SMS_MESSAGE_STATUS_WITHOUT_CALLBACK_URL);
+      if (!isValidStringValue(params.callbackurl)) throw new SeeMeClientError(SeeMeClientExceptions.SMS_MESSAGE_STATUS_WITHOUT_CALLBACK_URL);
       params.callback = Array.isArray(callbackStatus)
         ? callbackStatus.join(',')
         : callbackStatus === 'all'

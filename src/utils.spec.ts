@@ -1,19 +1,19 @@
-import { isHttpProtocol, isNonEmptyString, removeSlash, withDefaults } from './utils';
+import { isHttpProtocol, isValidStringValue, removeSlash, withDefaults, isValidIPv4Address } from './utils';
 
 describe('utils', () => {
   const exampleInvalidStringValues = ['', undefined, null, 0, {}, [], () => {}];
 
-  describe('isNonEmptyString(arg) should return', () => {
+  describe('isValidStringValue(arg) should return', () => {
     test('true if arg is a non empty string', () => {
-      expect(isNonEmptyString('asd')).toBe(true);
+      expect(isValidStringValue('asd')).toBe(true);
     });
 
     test('false when arg is empty string', () => {
-      expect(isNonEmptyString('')).toBe(false);
+      expect(isValidStringValue('')).toBe(false);
     });
 
     test('false when arg is not string', () => {
-      exampleInvalidStringValues.forEach((value) => expect(isNonEmptyString(value)).toBe(false));
+      exampleInvalidStringValues.forEach((value) => expect(isValidStringValue(value)).toBe(false));
     });
   });
 
@@ -26,6 +26,29 @@ describe('utils', () => {
     test('false when arg is not starting with http: or https:', () => {
       const extendedInvalidStringValues = exampleInvalidStringValues.concat(['', 'mailto:', 'mailto:john.doe@example.com', 'ws:', 'ws://example.com']);
       extendedInvalidStringValues.forEach((value) => expect(isHttpProtocol(value)).toBe(false));
+    });
+  });
+
+  describe('isValidIPv4Address(arg) should return', () => {
+    test('true when arg is a valid formatted ip v4 address', () => {
+      const subjects = ['0.0.0.0', '127.0.0.1', '255.255.255.255'];
+      const probe = (ip: any) => expect(isValidIPv4Address(ip)).toBe(true);
+
+      subjects.forEach(probe);
+    });
+
+    test('false when arg is not a valid string', () => {
+      const subjects = [false, '', {}, [], 1, Infinity, NaN, () => {}];
+      const probe = (ip: any) => expect(isValidIPv4Address(ip)).toBe(false);
+
+      subjects.forEach(probe);
+    });
+
+    test('false when arg is not a valid formatted ip v4 address', () => {
+      const subjects = ['00.00.00.00', '000.000.000.000', '256.256.256.256', '300.0.0.1', '2001:4860:4860::8888', '2001:4860:4860::8844'];
+      const probe = (ip: any) => expect(isValidIPv4Address(ip)).toBe(false);
+
+      subjects.forEach(probe);
     });
   });
 

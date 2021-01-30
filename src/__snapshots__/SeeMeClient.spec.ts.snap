@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeeMeClient creating client should return configured client 1`] = `
+Object {
+  "getBalance": [Function],
+  "sendMessage": [Function],
+  "setIP": [Function],
+}
+`;
