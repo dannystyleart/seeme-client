@@ -1,3 +1,6 @@
+[![Unit tests](https://github.com/dannystyleart/seeme-client/actions/workflows/node.js.yml/badge.svg)](https://github.com/dannystyleart/seeme-client/actions/workflows/node.js.yml)
+[![CodeQL](https://github.com/dannystyleart/seeme-client/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/dannystyleart/seeme-client/actions/workflows/codeql-analysis.yml)
+
 # seeme-client
 A nodejs client library for SMS gateway service provided by [seeme.hu][seeme-link-site]
 
