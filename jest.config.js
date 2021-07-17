@@ -4,5 +4,6 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest'
   },
-  collectCoverageFrom: ['src/**/*.(ts|tsx|js)']
+  collectCoverageFrom: ['src/**/*.(ts|tsx|js)'],
+  coveragePathIgnorePatterns: ['/node_modules/', '<rootDir>/src/interfaces']
 };
